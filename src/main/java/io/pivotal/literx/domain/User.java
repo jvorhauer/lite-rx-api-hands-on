@@ -40,17 +40,14 @@ public class User {
 			return false;
 		}
 
-		User user = (User) o;
+		final User user = (User) o;
 
-		if (!username.equals(user.username)) {
-			return false;
-		}
-		if (!firstname.equals(user.firstname)) {
-			return false;
-		}
-		return lastname.equals(user.lastname);
-
+		return equals(username, user.username);
 	}
+
+	private boolean equals(final String s1, final String s2) {
+	  return s1 != null && s1.equals(s2);
+  }
 
 	@Override
 	public int hashCode() {
