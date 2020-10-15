@@ -13,21 +13,21 @@ public class Part04Transform {
 
 //========================================================================================
 
-	// TODO Capitalize the user username, firstname and lastname
+	// DONE Capitalize the user username, firstname and lastname
 	Mono<User> capitalizeOne(Mono<User> mono) {
 		return mono.flatMap(this::asyncCapitalizeUser);
 	}
 
 //========================================================================================
 
-	// TODO Capitalize the users username, firstName and lastName
+	// DONE Capitalize the users username, firstName and lastName
 	Flux<User> capitalizeMany(Flux<User> flux) {
 		return flux.map(this::capitalizeUser);
 	}
 
 //========================================================================================
 
-	// TODO Capitalize the users username, firstName and lastName using #asyncCapitalizeUser
+	// DONE Capitalize the users username, firstName and lastName using #asyncCapitalizeUser
 	Flux<User> asyncCapitalizeMany(Flux<User> flux) {
 		return flux.flatMap(this::asyncCapitalizeUser);
 	}

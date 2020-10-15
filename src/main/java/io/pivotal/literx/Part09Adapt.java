@@ -23,7 +23,6 @@ import io.reactivex.rxjava3.core.BackpressureStrategy;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 import org.reactivestreams.Publisher;
 import reactor.adapter.rxjava.RxJava3Adapter;
 import reactor.core.publisher.Flux;
@@ -44,50 +43,41 @@ public class Part09Adapt {
 
 //========================================================================================
 
-	// TODO Adapt Flux to RxJava Flowable
 	Flowable<User> fromFluxToFlowable(Flux<User> flux) {
 		return RxJava3Adapter.fluxToFlowable(flux);
 	}
 
-	// TODO Adapt RxJava Flowable to Flux
 	Flux<User> fromFlowableToFlux(Flowable<User> flowable) {
 		return RxJava3Adapter.flowableToFlux(flowable);
 	}
 
 //========================================================================================
 
-	// TODO Adapt Flux to RxJava Observable
 	Observable<User> fromFluxToObservable(Flux<User> flux) {
 		return RxJava3Adapter.fluxToObservable(flux);
 	}
 
-	// TODO Adapt RxJava Observable to Flux
 	Flux<User> fromObservableToFlux(Observable<User> observable) {
 		return RxJava3Adapter.observableToFlux(observable, BackpressureStrategy.ERROR);
 	}
 
 //========================================================================================
 
-	// TODO Adapt Mono to RxJava Single
 	Single<User> fromMonoToSingle(Mono<User> mono) {
 		return RxJava3Adapter.monoToSingle(mono);
 	}
 
-	// TODO Adapt RxJava Single to Mono
 	Mono<User> fromSingleToMono(Single<User> single) {
 		return RxJava3Adapter.singleToMono(single);
 	}
 
 //========================================================================================
 
-	// TODO Adapt Mono to Java 8+ CompletableFuture
 	CompletableFuture<User> fromMonoToCompletableFuture(Mono<User> mono) {
 		return mono.toFuture();
 	}
 
-	// TODO Adapt Java 8+ CompletableFuture to Mono
 	Mono<User> fromCompletableFutureToMono(CompletableFuture<User> future) {
 		return Mono.fromFuture(future);
 	}
-
 }
